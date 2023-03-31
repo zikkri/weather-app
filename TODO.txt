@@ -1,0 +1,7 @@
+- inject weather service into component
+- link up to api 
+- have tabs between current / hourly? / 7 day /  14 day 
+    - fire an event to fetch appropriate data when tab is clicked and switched to (async)
+- maybe a toggle for farenheit or metric? (think thats celsius)
+- make functions to return each data separately ( one for each type of weather that want to view ) 
+- maybe make a diff component for the actual view ( instead of using AppComponent ) **** DEF DO this ****
