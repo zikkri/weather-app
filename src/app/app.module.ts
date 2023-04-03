@@ -14,13 +14,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherService } from './services/weather.service';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
     
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
