@@ -7,19 +7,24 @@
       <div class="row">
         <mat-label>Enter a city:</mat-label>
       </div>
-      <input matInput class="w-75" />
-
-      <!-- NEED TO MAKE THIS TO BE ABLE TO GET WHATEVER IS ENTERED AND SUBMITTED THEN PASS THAT AS AN ARG-->
-      <!-- PROB EASIEST IF I USE A FORM -->
-
-      <button
-        mat-raised-button
-        color="primary"
-        class="m-3"
-        (click)="getCurrentWeather('Toronto')"
+      <form
+        [formGroup]="weatherForm"
+        (ngSubmit)="getCurrentWeather(weatherForm.value)"
       >
-        Submit
-      </button>
+        <div class="form-group">
+          <input
+            matInput
+            class="w-75"
+            formControlName="city"
+            type="text"
+            required
+          />
+
+          <button mat-raised-button color="primary" class="m-3" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
     </mat-card>
   </div>
 
@@ -27,9 +32,9 @@
   <div class="container" [hidden]="isHidden">
     <mat-tab-group>
       <mat-tab label="Current">
-        <h1>{{ weather.location.name }}</h1>
-        <h5>{{ weather.current.temperature }}°C</h5>
-        <img [src]="weather.current.weather_icons" alt="weather image" />
+        <h1>{{ weather?.location.name }}</h1>
+        <h5>{{ weather?.current.temperature }}°C</h5>
+        <img [src]="weather?.current.weather_icons" alt="weather image" />
       </mat-tab>
       <mat-tab label="24 Hour">
         <!-- PUT IN 24 HOUR DATA -- MAKE LOOK NICE -->

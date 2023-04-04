@@ -1,30 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
-import { HttpClient } from '@angular/common/http';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
-  templateUrl: './weather.component.html'  
+  templateUrl: './weather.component.html',
 })
-
 export class WeatherComponent implements OnInit {
-  
-  curWeather: any;  
+  // public weatherForm = new FormGroup({
+  //   city: new FormControl(''),
+  // });
+
+  weatherForm = this.formBuilder.group({
+    city: [''],
+  });
+
+  curWeather: any;
   isHidden: Boolean = true;
 
-  constructor(private weatherService: WeatherService) { } 
+  constructor(
+    private weatherService: WeatherService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  getCurrentWeather(city: string) : void {
-    this.weatherService.getCurrentWeather(city).subscribe(data => {
+  getCurrentWeather(city: any): void {
+    let location: string;
+    location = JSON.stringify(city);
+
+    this.weatherService.getCurrentWeather(location).subscribe((data) => {
       this.curWeather = data;
 
-      console.log(data);
+      console.log(this.curWeather);
 
       this.isHidden = false;
-    })
+    });
   }
 
   get weather() {

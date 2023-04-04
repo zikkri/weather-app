@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //angular mat items
 import { MatButtonModule } from '@angular/material/button';
@@ -18,13 +17,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './services/weather.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WeatherComponent
-  ],
+  declarations: [AppComponent, WeatherComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,9 +33,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatRippleModule,
     MatSnackBarModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [WeatherService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
