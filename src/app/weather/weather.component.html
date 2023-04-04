@@ -8,7 +8,27 @@
         <mat-label>Enter a city:</mat-label>
       </div>
       <input matInput class="w-75" />
-      <button mat-raised-button color="primary" class="m-3">Submit</button>
+
+      <!-- NEED TO MAKE THIS TO BE ABLE TO GET WHATEVER IS ENTERED AND SUBMITTED THEN PASS THAT AS AN ARG-->
+      <!-- PROB EASIEST IF I USE A FORM -->
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="m-3"
+        (click)="getCurrentWeather('Toronto')"
+      >
+        Submit
+      </button>
+    </mat-card>
+  </div>
+
+  <!-- MAKE THIS HIDDEN UNTIL FUNCTION IS EXECUTED -->
+  <div class="container" [hidden]="isHidden">
+    <mat-card>
+      <h1>{{ weather.location.name }}</h1>
+      <h5>{{ weather.current.temperature }}°C</h5>
+      <img [src]="weather.current.weather_icons" alt="weather image" />
     </mat-card>
   </div>
 </div>

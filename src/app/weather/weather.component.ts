@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-weather',
@@ -9,8 +10,9 @@ import { WeatherService } from '../services/weather.service';
 export class WeatherComponent implements OnInit {
   
   curWeather: any;  
+  isHidden: Boolean = true;
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService) { } 
 
   ngOnInit(): void {
   }
@@ -20,6 +22,12 @@ export class WeatherComponent implements OnInit {
       this.curWeather = data;
 
       console.log(data);
+
+      this.isHidden = false;
     })
+  }
+
+  get weather() {
+    return this.curWeather;
   }
 }

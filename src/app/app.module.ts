@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { RouterModule } from '@angular/router';
+
 //angular mat items
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,9 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './services/weather.service';
-
-
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { WeatherService } from './services/weather.service';
     MatIconModule,
     MatRippleModule,
     MatSnackBarModule,
-    MatTabsModule,        
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
