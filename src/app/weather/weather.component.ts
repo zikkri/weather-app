@@ -31,8 +31,7 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {}
 
   getCurrentWeather(city: any): void {
-    let location: string;
-    location = JSON.stringify(city);
+    let location = JSON.stringify(city);
 
     this.weatherService.getCurrentWeather(location).subscribe((data) => {
       this.curWeather = data;

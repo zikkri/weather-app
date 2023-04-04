@@ -29,18 +29,24 @@
   </div>
 
   <!-- HIDDEN UNTIL FUNCTION IS EXECUTED -->
-  <div class="container" [hidden]="isHidden">
-    <mat-tab-group>
+  <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
+  <div class="container ">
+    <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
       <mat-tab label="Current">
-        <h1>{{ weather?.location.name }}</h1>
+        <h1>{{ weather?.location.name }}, {{ weather?.location.region }}</h1>
+        <h5>{{ weather?.current.weather_descriptions }}</h5>
         <h5>{{ weather?.current.temperature }}°C</h5>
         <img [src]="weather?.current.weather_icons" alt="weather image" />
+        <h5>
+          {{ weather?.current.wind_speed }}
+          <span>{{ weather?.current.wind_dir }}</span>
+        </h5>
       </mat-tab>
       <mat-tab label="24 Hour">
-        <!-- PUT IN 24 HOUR DATA -- MAKE LOOK NICE -->
+        <h1>testing 24 hour</h1>
       </mat-tab>
       <mat-tab label="7-Day">
-        <!-- PUT IN 7 DAY DATA -- MAKE LOOK NICE -->
+        <h1>testing 7-day</h1>
       </mat-tab>
     </mat-tab-group>
   </div>
