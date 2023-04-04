@@ -4,10 +4,8 @@ import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
   {
-    path: "weather", component: WeatherComponent
-  },
-  {
-    path: '', redirectTo: "weather", pathMatch: 'full'
+    path: 'weather',
+    component: WeatherComponent
   }
 ];
 

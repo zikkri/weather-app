@@ -36,8 +36,7 @@ import { WeatherService } from './services/weather.service';
     MatIconModule,
     MatRippleModule,
     MatSnackBarModule,
-    MatTabsModule,
-    
+    MatTabsModule,        
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
