@@ -16,4 +16,18 @@ export class WeatherService {
       `${API_URL}/current?access_key=${API_KEY}&query=${city}`
     );
   }
+
+  getDayWeather(city: string): Observable<Array<string>> {
+    //this isnt proper yet
+    return this.httpClient.get<Array<string>>(
+      `${API_URL}/forecast?access_key=${API_KEY}&query=${city}&forecast_days=1&hourly=1`
+    );
+  }
+
+  getWeekWeather(city: string): Observable<Array<string>> {
+    //this isnt proper yet
+    return this.httpClient.get<Array<string>>(
+      `${API_URL}/forecast?access_key=${API_KEY}&query=${city}&forecast_days=7&interval=24`
+    );
+  }
 }

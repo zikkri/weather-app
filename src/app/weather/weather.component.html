@@ -30,8 +30,9 @@
 
   <!-- HIDDEN UNTIL FUNCTION IS EXECUTED -->
   <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
-  <div class="container ">
-    <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
+  <div class="container">
+    <mat-tab-group (selectedIndexChange)="myTabSelectedTabChange($event)" mat-stretch-tabs="true" mat-align-tabs="start">
+      >
       <mat-tab label="Current">
         <h1>{{ weather?.location.name }}, {{ weather?.location.region }}</h1>
         <h5>{{ weather?.current.weather_descriptions }}</h5>
