@@ -31,7 +31,31 @@
   <!-- HIDDEN UNTIL FUNCTION IS EXECUTED -->
   <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
   <div class="container">
-    <mat-tab-group (selectedIndexChange)="myTabSelectedTabChange($event)" mat-stretch-tabs="true" mat-align-tabs="start">
+    <mat-card>
+      <div class="row">
+        <h1>{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img [src]="weather?.current.weather_icons" alt="weather image" class="img-fluid" id="img"/>          
+        </div>
+        <div class="col">
+          <h5>{{ weather?.current.weather_descriptions }}</h5>
+          <h5>{{ weather?.current.temperature }}°C</h5>
+          <h5>{{ weather?.current.feelslike }}°C</h5>
+          <h5>{{ weather?.current.precip }}%</h5>
+          <h5>{{ weather?.current.humidity }}%</h5>
+          <h5>{{ weather?.current.uv_index }}</h5>
+          <h5>
+            {{ weather?.current.wind_speed }}
+            <span>{{ weather?.current.wind_dir }}</span>
+          </h5>
+          <h6>Updated at: {{ weather?.current.observation_time }}°C</h6>
+        </div>
+      </div>
+    </mat-card>
+
+    <!-- <mat-tab-group (selectedIndexChange)="myTabSelectedTabChange($event)" mat-stretch-tabs="true" mat-align-tabs="start">
       >
       <mat-tab label="Current">
         <h1>{{ weather?.location.name }}, {{ weather?.location.region }}</h1>
@@ -49,6 +73,6 @@
       <mat-tab label="7-Day">
         <h1>testing 7-day</h1>
       </mat-tab>
-    </mat-tab-group>
+    </mat-tab-group> -->
   </div>
 </div>
