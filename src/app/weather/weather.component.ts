@@ -5,6 +5,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  Validators,
 } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -14,7 +15,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 })
 export class WeatherComponent implements OnInit {
   weatherForm = this.formBuilder.group({
-    city: [''],
+    city: ['', Validators.required],
   });
 
   curWeather: any;
@@ -33,19 +34,18 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  myTabSelectedTabChange(changeEvent: MatTabChangeEvent["index"]) {
+  myTabSelectedTabChange(changeEvent: MatTabChangeEvent['index']) {
     if (changeEvent === 1) {
-      console.log("change index:" + changeEvent)
+      console.log('change index:' + changeEvent);
       let location = this.weatherCity;
       this.getDayWeather(location);
     } else if (changeEvent === 2) {
-      console.log("change index:" + changeEvent)
+      console.log('change index:' + changeEvent);
       let location = this.weatherCity;
       this.getWeekWeather(location);
     }
   }
 
-  //CURRENT STUFF
   getCurrentWeather(city: any): void {
     let location = JSON.stringify(city);
 
