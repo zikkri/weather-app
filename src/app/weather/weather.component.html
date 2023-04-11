@@ -45,7 +45,7 @@
       <div class="row">
         <div class="col">
           <img
-            [src]="weather?.current.weather_icons"
+            [src]="weather?.current.condition.icon"
             alt="weather image"
             class="img-fluid"
             id="img"
@@ -58,25 +58,25 @@
             <span
               class="lead text-truncate"
               style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.weather_descriptions }}</span
+              >{{ weather?.current.condition.text }}</span
             >
           </h5>
           <h5>
             Temperature:
             <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.temperature }}°C</span
+              >{{ weather?.current.temp_c }}°C</span
             >
           </h5>
           <h5>
             Feels Like:
             <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.feelslike }}°C</span
+              >{{ weather?.current.feelslike_c }}°C</span
             >
           </h5>
           <h5>
             POP:
             <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.precip }}%</span
+              >{{ weather?.current.precip_mm }}mm</span
             >
           </h5>
 
@@ -102,13 +102,13 @@
           <h5>
             UV Index:
             <span class="lead" style="font-size: 44px; padding-left: 1rem">{{
-              weather?.current.uv_index
+              weather?.current.uv
             }}</span>
           </h5>
           <h5>
             Wind:
             <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.wind_speed }}km/h<span>
+              >{{ weather?.current.wind_kph }}km/h<span>
                 {{ weather?.current.wind_dir }}</span
               ></span
             >
@@ -116,7 +116,7 @@
           <h5>
             Updated at:
             <span class="lead" style="font-size: 44px; padding-left: 1rem">{{
-              weather?.current.observation_time
+              weather?.current.last_updated | date: 'shortTime'
             }}</span>
           </h5>
         </div>

@@ -1,12 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
@@ -94,7 +88,7 @@ export class WeatherComponent implements OnInit {
   //GET CURRENT WEATHER
   get weather() {
     return this.curWeather;
-  }
+  }  
 
   //GET 24 HOUR WEATHER
   get weatherDay() {
