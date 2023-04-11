@@ -13,7 +13,7 @@ export class WeatherService {
 
   getCurrentWeather(city: string): Observable<Array<string>> {
     return this.httpClient.get<Array<string>>(
-      `https://cors-anywhere.herokuapp.com/${API_URL}/current?access_key=${API_KEY}&query=${city}`
+      `${API_URL}/current?access_key=${API_KEY}&query=${city}`
     );
   }
 
