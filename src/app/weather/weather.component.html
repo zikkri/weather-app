@@ -32,15 +32,42 @@
   <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
   <div class="container">
     <mat-card>
-      <div class="row">
-        <h1>{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1>
+      <div class="row pb-3">
+        <h1 class="font-weight-bold">{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1>
+        <!-- <h1>{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1> -->
       </div>
       <div class="row">
         <div class="col">
-          <img [src]="weather?.current.weather_icons" alt="weather image" class="img-fluid" id="img"/>          
+          <img [src]="weather?.current.weather_icons" alt="weather image" class="img-fluid" id="img" />
+          <!-- <img [src]="weather?.current.weather_icons" alt="weather image" class="img-fluid" id="img"/>           -->
         </div>
-        <div class="col">
-          <h5>{{ weather?.current.weather_descriptions }}</h5>
+        <div class="col my-auto">
+          <h5>
+            Conditions:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.weather_descriptions }}</span
+            >
+          </h5>
+          <h5>
+            Temperature:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.temperature }}°C</span
+            >
+          </h5>
+          <h5>
+            Feels Like:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.feelslike }}°C</span
+            >
+          </h5>
+          <h5>
+            POP:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.precip }}%</span
+            >
+          </h5>
+
+          <!-- <h5>{{ weather?.current.weather_descriptions }}</h5>
           <h5>{{ weather?.current.temperature }}°C</h5>
           <h5>{{ weather?.current.feelslike }}°C</h5>
           <h5>{{ weather?.current.precip }}%</h5>
@@ -50,7 +77,33 @@
             {{ weather?.current.wind_speed }}
             <span>{{ weather?.current.wind_dir }}</span>
           </h5>
-          <h6>Updated at: {{ weather?.current.observation_time }}°C</h6>
+          <h6>Updated at: {{ weather?.current.observation_time }}°C</h6> -->
+        </div>
+        <div class="col my-auto">
+          <h5>
+            Humidity:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.humidity }}%</span
+            >
+          </h5>
+          <h5>
+            UV Index:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.uv_index }}</span
+            >
+          </h5>
+          <h5>
+            Wind:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.wind_speed }}<span>{{ weather?.current.wind_dir }}</span></span
+            >
+          </h5>
+          <h5>
+            Updated at:
+            <span class="lead" style="font-size: 44px; padding-left: 1rem"
+              >{{ weather?.current.observation_time }}</span
+            >
+          </h5>
         </div>
       </div>
     </mat-card>
