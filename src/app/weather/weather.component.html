@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="container">
-    <h1 class="display-1 text-center">zb weather app</h1>
+    <h1 class="display-1 text-center text-white text-bold" id="header">zb weather app</h1>
   </div>
-  <div class="container mx-auto my-3">
-    <mat-card>
+  <div class="container mx-auto my-3 background-color-grey">
+    <mat-card class="border border-black border-2 rounded ">
       <div class="row">
-        <mat-label>Enter a city:</mat-label>
+        <mat-label class="lead">Enter a city:</mat-label>
       </div>
       <form
         [formGroup]="weatherForm"
@@ -31,7 +31,7 @@
   <!-- HIDDEN UNTIL FUNCTION IS EXECUTED -->
   <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
   <div class="container">
-    <mat-card>
+    <mat-card class="border border-black border-2 rounded">
       <div class="row pb-3">
         <h1 class="font-weight-bold">{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1>
         <!-- <h1>{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1> -->
