@@ -16,6 +16,8 @@ export class WeatherComponent implements OnInit {
   dayWeather: any;
   weekWeather: any;
   weatherCity: string = '';
+
+  hours = new Array(24);
   isHidden: Boolean = true;
 
   @Output()
@@ -88,7 +90,7 @@ export class WeatherComponent implements OnInit {
   //GET CURRENT WEATHER
   get weather() {
     return this.curWeather;
-  }  
+  }
 
   //GET 24 HOUR WEATHER
   get weatherDay() {
@@ -98,5 +100,9 @@ export class WeatherComponent implements OnInit {
   //GET WEEKLY HOUR WEATHER
   get weatherWeek() {
     return this.weekWeather;
+  }
+
+  get hoursInDay() {
+    return this.hours;
   }
 }

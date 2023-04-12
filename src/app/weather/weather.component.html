@@ -119,7 +119,7 @@
     >
       >
       <mat-tab label="Current">
-        <div class="row pb-3">
+        <div class="row pb-3 overflow-visible">
           <h1 class="font-weight-bold">
             {{ weather?.location.name }}, {{ weather?.location.region }},
             {{ weather?.location.country }}
@@ -193,7 +193,19 @@
         </div>
       </mat-tab>
       <mat-tab label="24 Hour">
-        <h1>testing 24 hour</h1>
+        <!-- THIS IS HOW TO TARGET EACH DAY TEMP  --- NEED TO FIGURE OUT HOW TO LOOP THIS -->
+        <div class="col">
+          <img
+            [src]="dayWeather?.forecast.forecastday[0].hour[0].condition.icon"
+          />
+          <h5>{{ dayWeather?.forecast.forecastday[0].hour[0].temp_c }}</h5>
+          <h5>
+            {{
+              dayWeather?.forecast.forecastday[0].hour[0].time
+                | date : "shortTime"
+            }}
+          </h5>
+        </div>
       </mat-tab>
       <mat-tab label="7-Day">
         <h1>testing 7-day</h1>
