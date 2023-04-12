@@ -119,7 +119,7 @@
     >
       >
       <mat-tab label="Current">
-        <div class="row pb-3 overflow-visible">
+        <div class="row pb-3">
           <h1 class="font-weight-bold">
             {{ weather?.location.name }}, {{ weather?.location.region }},
             {{ weather?.location.country }}
@@ -194,21 +194,49 @@
       </mat-tab>
       <mat-tab label="24 Hour">
         <!-- THIS IS HOW TO TARGET EACH DAY TEMP  --- NEED TO FIGURE OUT HOW TO LOOP THIS -->
-        <div class="col">
-          <img
-            [src]="dayWeather?.forecast.forecastday[0].hour[0].condition.icon"
-          />
-          <h5>{{ dayWeather?.forecast.forecastday[0].hour[0].temp_c }}</h5>
-          <h5>
-            {{
-              dayWeather?.forecast.forecastday[0].hour[0].time
-                | date : "shortTime"
-            }}
-          </h5>
+        <div class="row pb-3 overflow-visible">
+          <h1 class="font-weight-bold">
+            {{ dayWeather?.location.name }}, {{ dayWeather?.location.region }},
+            {{ dayWeather?.location.country }}
+          </h1>
+        </div>
+        <div class="col d-flex" *ngFor="let hour of hours; let i = index">
+          <div>
+            <img
+              [src]="dayWeather?.forecast.forecastday[0].hour[i].condition.icon"
+            />
+            <h5>{{ dayWeather?.forecast.forecastday[0].hour[i].temp_c }}</h5>
+            <h5>
+              {{
+                dayWeather?.forecast.forecastday[0].hour[i].time
+                  | date : "shortTime"
+              }}
+            </h5>
+          </div>
         </div>
       </mat-tab>
       <mat-tab label="7-Day">
-        <h1>testing 7-day</h1>
+        <div class="row pb-3 overflow-visible">
+          <h1 class="font-weight-bold">
+            {{ weekWeather?.location.name }},
+            {{ weekWeather?.location.region }},
+            {{ weekWeather?.location.country }}
+          </h1>
+        </div>
+        <div class="col d-flex" *ngFor="let day of days; let i = index">
+          <div>
+            <img
+              [src]="weekWeather?.forecast.forecastday[i].day.condition.icon"
+            />
+            <h5>{{ weekWeather?.forecast.forecastday[i].day.temp_c }}</h5>
+            <h5>
+              {{
+                weekWeather?.forecast.forecastday[i].hour[i].time
+                  | date : "shortTime"
+              }}
+            </h5>
+          </div>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
