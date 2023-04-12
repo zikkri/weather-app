@@ -222,8 +222,7 @@
       <mat-tab label="7-Day">
         <div class="row pb-3 overflow-visible">
           <h1 class="font-weight-bold">
-            {{ weather?.location.name }},
-            {{ weather?.location.region }},
+            {{ weather?.location.name }}, {{ weather?.location.region }},
             {{ weather?.location.country }}
           </h1>
         </div>
@@ -235,10 +234,7 @@
               />
               <h5>{{ weekWeather?.forecast.forecastday[i].day.temp_c }}</h5>
               <h5>
-                {{
-                  weekWeather?.forecast.forecastday[i].hour[i].time
-                    | date : "shortTime"
-                }}
+                {{ weekWeather?.forecast.forecastday[i].date | date : "cccc" }}
               </h5>
             </div>
           </div>
