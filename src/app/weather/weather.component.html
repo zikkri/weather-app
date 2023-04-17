@@ -122,15 +122,15 @@
             {{ weather?.location.country }}
           </h1>
         </div>
-        <div class="row">
-          <div class="col d-flex" *ngFor="let hour of hours; let i = index">
+        <div class="row mb-3">
+          <div class="col d-flex text-center card p-2" *ngFor="let hour of hours; let i = index">
             <div>
               <img
                 [src]="
                   dayWeather?.forecast.forecastday[0].hour[i].condition.icon
                 "
               />
-              <h5>{{ dayWeather?.forecast.forecastday[0].hour[i].temp_c }}</h5>
+              <h5>{{ dayWeather?.forecast.forecastday[0].hour[i].temp_c }}°C</h5>
               <h5>
                 {{
                   dayWeather?.forecast.forecastday[0].hour[i].time
@@ -151,15 +151,18 @@
           </h1>
         </div>
         <div class="row">
-          <div class="col d-flex" *ngFor="let day of days; let i = index">
-            <div>
+          <div class="col d-flex text-center" *ngFor="let day of days; let i = index">
+            <div class="card p-2">
               <img
                 [src]="weekWeather?.forecast.forecastday[i].day.condition.icon"
               />
-              <h5>{{ weekWeather?.forecast.forecastday[i].day.temp_c }}</h5>
               <h5>
                 {{ weekWeather?.forecast.forecastday[i].date | date : "cccc" }}
               </h5>
+              <h5>Avg: {{ weekWeather?.forecast.forecastday[i].day.avgtemp_c }}°C</h5>
+              <h5>High: {{ weekWeather?.forecast.forecastday[i].day.maxtemp_c }}°C</h5>
+              <h5>Low: {{ weekWeather?.forecast.forecastday[i].day.mintemp_c }}°C</h5>
+              <h5>UV Index: {{ weekWeather?.forecast.forecastday[i].day.uv }}</h5>
             </div>
           </div>
         </div>
