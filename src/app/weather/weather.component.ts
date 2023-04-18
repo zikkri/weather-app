@@ -12,12 +12,14 @@ export class WeatherComponent implements OnInit {
     city: ['', Validators.required],
   });
 
+  //VARIABLES
   curWeather: any;
   dayWeather: any;
   weekWeather: any;
-  weatherCity: string = '';
+  weatherCity: string = '';  
   isHidden: Boolean = true;
 
+  //EVENTS
   @Output()
   selectedTabChange: EventEmitter<MatTabChangeEvent> | undefined;
 
@@ -28,6 +30,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //FUNCTIONS
   myTabSelectedTabChange(changeEvent: MatTabChangeEvent['index']) {
     if (changeEvent === 1) {
       console.log('change index:' + changeEvent);
@@ -88,7 +91,7 @@ export class WeatherComponent implements OnInit {
   //GET CURRENT WEATHER
   get weather() {
     return this.curWeather;
-  }  
+  }
 
   //GET 24 HOUR WEATHER
   get weatherDay() {
@@ -98,5 +101,13 @@ export class WeatherComponent implements OnInit {
   //GET WEEKLY HOUR WEATHER
   get weatherWeek() {
     return this.weekWeather;
+  }
+
+  get hours() {
+    return [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+  }
+
+  get days(){
+    return [0,1,2,3,4,5,6];
   }
 }

@@ -4,22 +4,33 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #9fa4c4;
-  background-image: linear-gradient(270deg, #9fa4c4 0%, #9e768f 74%);
+  overflow-x: hidden;
+  background-image: url('./assets/img/bg-2.jpg');
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: 300;
+}
+
+/* #header {
+  text-shadow: #000000 3px 3px 2px;
+} */
+
+#img {
+  width: 280px;
+  height: 280px;
 }
 
 #header {
+  font-weight: 400;
   text-shadow: #000000 3px 3px 2px;
+  /* color: rgb(16, 16, 201); */
 }
 
-#img {
-  width: 250px;
-  height: 250px;
+.mat-tab-body-content {
+  overflow: hidden !important;
 }

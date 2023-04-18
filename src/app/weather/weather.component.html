@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="container">
-    <h1 class="display-1 text-center text-white text-bold" id="header">
+    <h1 class="display-1 text-center text-bold text-white" id="header">
       zb weather app
     </h1>
   </div>
@@ -31,116 +31,181 @@
     </mat-card>
   </div>
 
-  <!-- HIDDEN UNTIL FUNCTION IS EXECUTED -->
-  <!-- ADD BACK INTO CONTAINER AFTER DONE STYLING ======  [hidden]="isHidden" -->
-  <div class="container" [hidden]="isHidden">
-    <mat-card class="border border-black border-2 rounded">
-      <div class="row pb-3">
-        <h1 class="font-weight-bold">
-          {{ weather?.location.name }}, {{ weather?.location.region }},
-          {{ weather?.location.country }}
-        </h1>
-        <!-- <h1>{{ weather?.location.name }}, {{ weather?.location.region }}, {{ weather?.location.country }}</h1> -->
-      </div>
-      <div class="row">
-        <div class="col">
-          <img
-            [src]="weather?.current.condition.icon"
-            alt="weather image"
-            class="img-fluid"
-            id="img"
-          />
-          <!-- <img [src]="weather?.current.weather_icons" alt="weather image" class="img-fluid" id="img"/>           -->
-        </div>
-        <div class="col my-auto">
-          <h5>
-            Conditions:
-            <span
-              class="lead text-truncate"
-              style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.condition.text }}</span
-            >
-          </h5>
-          <h5>
-            Temperature:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.temp_c }}°C</span
-            >
-          </h5>
-          <h5>
-            Feels Like:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.feelslike_c }}°C</span
-            >
-          </h5>
-          <h5>
-            POP:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.precip_mm }}mm</span
-            >
-          </h5>
-
-          <!-- <h5>{{ weather?.current.weather_descriptions }}</h5>
-          <h5>{{ weather?.current.temperature }}°C</h5>
-          <h5>{{ weather?.current.feelslike }}°C</h5>
-          <h5>{{ weather?.current.precip }}%</h5>
-          <h5>{{ weather?.current.humidity }}%</h5>
-          <h5>{{ weather?.current.uv_index }}</h5>
-          <h5>
-            {{ weather?.current.wind_speed }}
-            <span>{{ weather?.current.wind_dir }}</span>
-          </h5>
-          <h6>Updated at: {{ weather?.current.observation_time }}°C</h6> -->
-        </div>
-        <div class="col my-auto">
-          <h5>
-            Humidity:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.humidity }}%</span
-            >
-          </h5>
-          <h5>
-            UV Index:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem">{{
-              weather?.current.uv
-            }}</span>
-          </h5>
-          <h5>
-            Wind:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem"
-              >{{ weather?.current.wind_kph }}km/h<span>
-                {{ weather?.current.wind_dir }}</span
-              ></span
-            >
-          </h5>
-          <h5>
-            Updated at:
-            <span class="lead" style="font-size: 44px; padding-left: 1rem">{{
-              weather?.current.last_updated | date: 'shortTime'
-            }}</span>
-          </h5>
-        </div>
-      </div>
-    </mat-card>
-
-    <!-- <mat-tab-group (selectedIndexChange)="myTabSelectedTabChange($event)" mat-stretch-tabs="true" mat-align-tabs="start">
+  <div
+    class="container py-4 bg-white border border-black border-2 rounded mb-4"
+    [hidden]="isHidden"
+  >
+    <!-- CURRENT STUFF  -->
+    <mat-tab-group
+      (selectedIndexChange)="myTabSelectedTabChange($event)"
+      mat-stretch-tabs="true"
+      mat-align-tabs="start"
+    >
       >
       <mat-tab label="Current">
-        <h1>{{ weather?.location.name }}, {{ weather?.location.region }}</h1>
-        <h5>{{ weather?.current.weather_descriptions }}</h5>
-        <h5>{{ weather?.current.temperature }}°C</h5>
-        <img [src]="weather?.current.weather_icons" alt="weather image" />
-        <h5>
-          {{ weather?.current.wind_speed }}
-          <span>{{ weather?.current.wind_dir }}</span>
-        </h5>
+        <div class="row pb-3 pt-3">
+          <h1 class="font-weight-bold">
+            {{ weather?.location.name }}, {{ weather?.location.region }},
+            {{ weather?.location.country }}
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img
+              [src]="weather?.current.condition.icon"
+              alt="weather image"
+              class="img-fluid"
+              id="img"
+            />
+          </div>
+          <div class="col my-auto">
+            <h5>
+              Conditions:
+              <span class="lead text-truncate" style="font-size: 24px">{{
+                weather?.current.condition.text
+              }}</span>
+            </h5>
+            <h5>
+              Temperature:
+              <span class="lead" style="font-size: 24px"
+                >{{ weather?.current.temp_c }}°C</span
+              >
+            </h5>
+            <h5>
+              Feels Like:
+              <span class="lead" style="font-size: 24px"
+                >{{ weather?.current.feelslike_c }}°C</span
+              >
+            </h5>
+            <h5>
+              POP:
+              <span class="lead" style="font-size: 24px"
+                >{{ weather?.current.precip_mm }}mm</span
+              >
+            </h5>
+          </div>
+          <div class="col my-auto">
+            <h5>
+              Humidity:
+              <span class="lead" style="font-size: 24px"
+                >{{ weather?.current.humidity }}%</span
+              >
+            </h5>
+            <h5>
+              UV Index:
+              <span class="lead" style="font-size: 24px">{{
+                weather?.current.uv
+              }}</span>
+            </h5>
+            <h5>
+              Wind:
+              <span class="lead" style="font-size: 24px"
+                >{{ weather?.current.wind_kph }}km/h<span>
+                  {{ weather?.current.wind_dir }}</span
+                ></span
+              >
+            </h5>
+            <h5>
+              Updated at:
+              <span class="lead" style="font-size: 24px">{{
+                weather?.current.last_updated | date : "shortTime"
+              }}</span>
+            </h5>
+          </div>
+        </div>
       </mat-tab>
+
+      <!-- 24 HOUR STUFF  -->
       <mat-tab label="24 Hour">
-        <h1>testing 24 hour</h1>
+        <div class="row pb-3 pt-3 overflow-hidden">
+          <h1 class="font-weight-bold">
+            {{ weather?.location.name }}, {{ weather?.location.region }},
+            {{ weather?.location.country }}
+          </h1>
+        </div>
+        <div class="row mb-3 justify-content-center">
+          <div
+            class="col-4 m-2 d-flex text-center card p-2"
+            *ngFor="let hour of hours; let i = index"
+          >
+            <div>
+              <img
+                [src]="
+                  dayWeather?.forecast.forecastday[0].hour[i].condition.icon
+                "
+              />
+              <h5>
+                {{
+                  dayWeather?.forecast.forecastday[0].hour[i].time
+                    | date : "shortTime"
+                }}
+              </h5>
+              <h5 class="lead">
+                {{ dayWeather?.forecast.forecastday[0].hour[i].condition.text }}
+              </h5>
+              <h5 class="lead">
+                {{ dayWeather?.forecast.forecastday[0].hour[i].temp_c }}°C
+              </h5>
+            </div>
+          </div>
+        </div>
       </mat-tab>
+
+      <!-- 7-DAY STUFF  -->
       <mat-tab label="7-Day">
-        <h1>testing 7-day</h1>
+        <div class="row pb-3 pt-3">
+          <h1 class="font-weight-bold">
+            {{ weather?.location.name }}, {{ weather?.location.region }},
+            {{ weather?.location.country }}
+          </h1>
+        </div>
+        <div class="row">
+          <div
+            class="col d-flex text-center"
+            *ngFor="let day of days; let i = index"
+          >
+            <div class="card px-4 m-2">
+              <img
+                [src]="weekWeather?.forecast.forecastday[i].day.condition.icon"
+              />
+              <h5 class="pt-2">
+                {{ weekWeather?.forecast.forecastday[i].date | date : "cccc" }}
+              </h5>
+              <h5>
+                Avg:
+                <span class="lead">
+                  {{
+                    weekWeather?.forecast.forecastday[i].day.avgtemp_c
+                  }}°C</span
+                >
+              </h5>
+              <h5>
+                High:
+                <span class="lead"
+                  >{{
+                    weekWeather?.forecast.forecastday[i].day.maxtemp_c
+                  }}°C</span
+                >
+              </h5>
+              <h5>
+                Low:
+                <span class="lead"
+                  >{{
+                    weekWeather?.forecast.forecastday[i].day.mintemp_c
+                  }}°C</span
+                >
+              </h5>
+              <h5>
+                UV Index:
+                <span class="lead">{{
+                  weekWeather?.forecast.forecastday[i].day.uv
+                }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
       </mat-tab>
-    </mat-tab-group> -->
+    </mat-tab-group>
   </div>
+  <footer class="py-3"></footer>
 </div>
