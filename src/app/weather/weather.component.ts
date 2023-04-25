@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-weather',
@@ -16,7 +16,7 @@ export class WeatherComponent implements OnInit {
   curWeather: any;
   dayWeather: any;
   weekWeather: any;
-  weatherCity: string = '';  
+  weatherCity: string = '';
   isHidden: Boolean = true;
 
   //EVENTS
@@ -33,11 +33,11 @@ export class WeatherComponent implements OnInit {
   //FUNCTIONS
   myTabSelectedTabChange(changeEvent: MatTabChangeEvent['index']) {
     if (changeEvent === 1) {
-      console.log('change index:' + changeEvent);
+      // console.log('change index:' + changeEvent);
       let location = this.weatherCity;
       this.getDayWeather(location);
     } else if (changeEvent === 2) {
-      console.log('change index:' + changeEvent);
+      // console.log('change index:' + changeEvent);
       let location = this.weatherCity;
       this.getWeekWeather(location);
     }
@@ -50,7 +50,7 @@ export class WeatherComponent implements OnInit {
       this.curWeather = data;
       this.weatherCity = location;
 
-      console.log(this.curWeather);
+      // console.log(this.curWeather);
 
       this.isHidden = false;
     });
@@ -68,7 +68,7 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getDayWeather(location).subscribe((data) => {
       this.dayWeather = data;
 
-      console.log(this.dayWeather);
+      // console.log(this.dayWeather);
     });
   }
 
@@ -84,7 +84,7 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeekWeather(location).subscribe((data) => {
       this.weekWeather = data;
 
-      console.log(this.weekWeather);
+      // console.log(this.weekWeather);
     });
   }
 
@@ -104,10 +104,13 @@ export class WeatherComponent implements OnInit {
   }
 
   get hours() {
-    return [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+    return [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23,
+    ];
   }
 
-  get days(){
-    return [0,1,2,3,4,5,6];
+  get days() {
+    return [0, 1, 2];
   }
 }

@@ -152,7 +152,7 @@
       </mat-tab>
 
       <!-- 7-DAY STUFF  -->
-      <mat-tab label="7-Day">
+      <mat-tab label="3-Day">
         <div class="row pb-3 pt-3">
           <h1 class="font-weight-bold">
             {{ weather?.location.name }}, {{ weather?.location.region }},
@@ -161,7 +161,7 @@
         </div>
         <div class="row">
           <div
-            class="col d-flex text-center"
+            class="col d-flex text-center justify-content-around"
             *ngFor="let day of days; let i = index"
           >
             <div class="card px-4 m-2">
